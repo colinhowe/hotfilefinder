@@ -75,6 +75,8 @@ def _process_args():
                        help='date to limit commits from')
     parser.add_argument('--until',
                        help='date to limit commits until')
+    parser.add_argument('-n', type=int,
+                       help='number of results to output')
     return parser.parse_args()
 
 if __name__ == '__main__':
@@ -84,5 +86,7 @@ if __name__ == '__main__':
         args.path or '',
         since=args.since, until=args.until)
     hotness = sorted(hotness.iteritems(), reverse=True, key=lambda item: item[1])
+    if args.n:
+        hotness = hotness[:args.n]
     for path, value in hotness:
         print path, '\t', value
