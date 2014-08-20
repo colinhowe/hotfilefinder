@@ -16,10 +16,15 @@ full of bugs and needing some serious love.
 Installation
 ------------
 
+::
+
     $ pip install hotfilefinder
 
+-----
 Usage
 -----
+
+::
 
     $ cd somegitrepo
     $ hotfilefinder
