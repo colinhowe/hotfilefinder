@@ -9,7 +9,7 @@ long_desc = open(root_dir + '/README.md').read()
 
 setup(
     name='hotfilefinder',
-    version='0.1',
+    version='0.2',
     description='Finds the hottest files in a git repo',
     url='https://github.com/colinhowe/hotfilefinder',
     author='Colin Howe',
