@@ -70,13 +70,13 @@ def _combine_changes(commits):
 def _process_args():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument('-path',
-                       help='path to the git repo')
+        help='path to the git repo')
     parser.add_argument('--since',
-                       help='date to limit commits from')
+        help='date to limit commits from')
     parser.add_argument('--until',
-                       help='date to limit commits until')
-    parser.add_argument('-n', type=int,
-                       help='number of results to output')
+        help='date to limit commits until')
+    parser.add_argument('-n', type=int, default=50,
+        help='number of results to output. Specifying 0 will output all')
     return parser.parse_args()
 
 if __name__ == '__main__':
