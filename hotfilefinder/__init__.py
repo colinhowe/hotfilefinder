@@ -114,7 +114,10 @@ def _process_args():
         + ' Default 20')
     return parser.parse_args()
 
-if __name__ == '__main__':
+def _main():
+    """
+    Entry point when run on the console.
+    """
     args = _process_args()
 
     hotness = calculate_hotness(
@@ -125,3 +128,6 @@ if __name__ == '__main__':
         hotness = hotness[:args.n]
     for path, value in hotness:
         print path, '\t', value
+
+if __name__ == '__main__':
+    _main()
