@@ -1,5 +1,5 @@
-hotfilefinder
-=============
+Hot File Finder
+===============
 
 Finds the 'hottest' files in a git repos history.
 
