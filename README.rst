@@ -1,3 +1,4 @@
+===============
 Hot File Finder
 ===============
 
@@ -11,18 +12,19 @@ Output is a list of sorted filenames with their hotness score.
 Can be useful for finding files that are likely culprits for being too big or
 full of bugs and needing some serious love.
 
+------------
 Installation
 ------------
 
-    > pip install hotfilefinder
+    $ pip install hotfilefinder
 
 Usage
 -----
 
-    > cd somegitrepo
-    > hotfilefinder
+    $ cd somegitrepo
+    $ hotfilefinder
     README.md 	21
     hotfilefinder/__init__.py 	8
     setup.py 	2
 
-See `hotfilefinder -h` for more options.
+See ``hotfilefinder -h`` for more options.

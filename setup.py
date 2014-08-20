@@ -5,11 +5,11 @@ import os
 root_dir = os.path.dirname(__file__)
 if not root_dir:
     root_dir = '.'
-long_desc = open(root_dir + '/README.md').read()
+long_desc = open(root_dir + '/README.rst').read()
 
 setup(
     name='hotfilefinder',
-    version='0.2',
+    version='0.2.1',
     description='Finds the hottest files in a git repo',
     url='https://github.com/colinhowe/hotfilefinder',
     author='Colin Howe',
