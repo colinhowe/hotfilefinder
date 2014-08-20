@@ -7,6 +7,19 @@ order of their hotness.
 
 Hotness is the number of lines that have been modified."""
 
+def calculate_hotness(path):
+    """
+    Calculates the hotness of the git repo at the given (git) path.
+
+    The return value will be a dictionary of paths to hotness (number of times
+    modified).
+    """
+    log = _get_git_log(path)
+    commits = _group_into_commits(log)
+    changes = [_parse_commit_change_size(commit) for commit in commits]
+    totals = _combine_changes(changes)
+    return totals
+
 def _get_git_log(path):
     """
     Gets the git log at the given path.
@@ -47,19 +60,6 @@ def _combine_changes(commits):
             result[path] += value
     return result
 
-def calculate_hotness(path):
-    """
-    Calculates the hotness of the git repo at the given path.
-
-    The return value will be a dictionary of paths to hotness (number of times
-    modified).
-    """
-    log = _get_git_log(path)
-    commits = _group_into_commits(log)
-    changes = [_parse_commit_change_size(commit) for commit in commits]
-    totals = _combine_changes(changes)
-    return totals
-
 def _process_args():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument('-path',
@@ -70,6 +70,6 @@ if __name__ == '__main__':
     args = _process_args()
 
     hotness = calculate_hotness(args.path or '')
-    hotness = sorted(hotness.iteritems(), key=lambda item: item[1])
-    print hotness
-
+    hotness = sorted(hotness.iteritems(), reverse=True, key=lambda item: item[1])
+    for path, value in hotness:
+        print path, '\t', value
