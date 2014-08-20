@@ -25,4 +25,4 @@ Usage
     hotfilefinder/__init__.py 	8
     setup.py 	2
 
-
+See `hotfilefinder -h` for more options.
